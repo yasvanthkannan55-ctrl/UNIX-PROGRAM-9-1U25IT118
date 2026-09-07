@@ -1,0 +1,20 @@
+name: Linux mv Command Autograding
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  autograding:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout student repository
+        uses: actions/checkout@v4
+
+      - name: Make script executable
+        run: chmod +x mv_operations.sh
+
+      - name: Run automated tests
+        run: bash tests/test_mv_operations.sh
+
